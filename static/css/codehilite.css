@@ -1,0 +1,25 @@
+pre {
+  background-color: #f7f7f7;
+  border-radius: 3px;
+  border: 1px solid #ddd;
+  color: #333;
+  font-size: 13px;
+  line-height: 1.45;
+  overflow: auto;
+  padding: 16px;
+}
+
+pre code {
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+}
+
+.highlight {
+  background-color: #fff5b1;
+  border-radius: 3px;
+  color: #333;
+  display: block;
+  margin: 0;
+  padding: 4px;
+}
