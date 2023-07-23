@@ -1,28 +1,57 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <!-- Main Content-->
-    <div class="container px-4 px-lg-5">
+    <!-- Page Header-->
+    <header class="masthead" style="background-image: url('../static/assets/img/home-bg.jpg')">
+        <div class="container position-relative px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
-                    {% for post in posts %}
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="posts/{{post.id}}">
-                            <h2 class="post-title">{{post.title}}</h2>
-<!--                            <h3 class="post-subtitle">Problems look mighty small from 150 miles up</h3>-->
-                        </a>
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            {{post.created}}
-                        </p>
+                    <div class="site-heading">
+                        <h1>
+                            <span class="auto-type">
+                                vintila.dev
+                            </span>
+                        </h1>
+                        <span class="subheading">Little dev journal</span>
                     </div>
-                    {% endfor %}
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
                 </div>
             </div>
+        </div>
+    </header>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed(".auto-type", {
+            strings: ["vintila.dev"],
+            typeSpeed: 200,
+            loop: false
+        })
+    </script>
+
+    <!-- Main Content-->
+    <div class="container">
+        <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        {% for post in posts %}
+                        <!-- Post preview-->
+                        <div class="post-preview">
+                            <a href="posts/{{post.id}}">
+                                <h2 class="post-title">{{post.title}}</h2>
+    <!--                            <h3 class="post-subtitle">Problems look mighty small from 150 miles up</h3>-->
+                            </a>
+                                <p class="font-monospace fs-6 fw-lighter">
+        <!--                            Posted by-->
+        <!--                            <a href="#!">Start Bootstrap</a>-->
+                                    {{post.created}}
+                                </p>
+
+                        </div>
+                        {% endfor %}
+                        <!-- Divider-->
+    <!--                    <hr class="my-4" />-->
+    <!--                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>-->
+                    </div>
+                </div>
+        </div>
     </div>
 {% endblock %}

@@ -59,7 +59,7 @@ class PostForm(FlaskForm):
 
 @app.route("/")
 def index():
-    posts = Post.query.limit(3).all()
+    posts = Post.query.all()
     return render_template("index.html", posts=posts)
 
 
@@ -72,13 +72,31 @@ def about():
 def post(post_id):
     post = Post.query.filter_by(id=post_id).first()
     html_content = markdown.markdown(post.content)
-    return render_template("post.html", content=html_content)
+    return render_template("post.html", title=post.title, content=html_content)
 
 
-@app.route("/posts", methods=['GET'])
-def posts():
-    posts = Post.query.limit(3).all()
-    return render_template("posts.html", posts=posts)
+# @app.route("/posts/create", methods=['GET', "POST"])
+# def create_post():
+#     form = PostForm()
+#     if form.is_submitted():
+#         post = Post(
+#             title=form.title.data,
+#             content=form.content.data,
+#             author_id="3d3c853c-efc4-47a3-a37f-9f4e6a639216",
+#         )
+#         db.session.add(post)
+#         db.session.commit()
+#         form.title.data = ""
+#         form.content.data = ""
+#         # flash("Post Added Successfully")
+#     return render_template("create_post.html",
+#                            form=form)
+
+
+# @app.route("/posts", methods=['GET'])
+# def posts():
+#     posts = Post.query.limit(3).all()
+#     return render_template("posts.html", posts=posts)
 
 
 if __name__ == '__main__':
