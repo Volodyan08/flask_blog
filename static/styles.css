@@ -296,7 +296,14 @@ figure {
   margin: 0 0 1rem;
 }
 
-img,
+img {
+  max-width: 80%;
+  vertical-align: middle;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+} 
+
 svg {
   vertical-align: middle;
 }
